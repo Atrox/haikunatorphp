@@ -1,6 +1,7 @@
 # HaikunatorPHP
 
 [![Build Status](https://img.shields.io/travis/Atrox/haikunatorphp.svg?style=flat-square)](https://travis-ci.org/Atrox/haikunatorphp)
+[![Latest Version](https://img.shields.io/packagist/v/Atrox/haikunator.svg?style=flat-square)](https://packagist.org/packages/atrox/haikunator)
 
 Generate Heroku-like random names to use in your PHP applications.
 
@@ -21,25 +22,25 @@ use Atrox\Haikunator\Haikunator;
 Haikunator::haikunate() // => "wispy-dust-1337"
 
 // custom length (default=4)
-haikunate(["tokenLength" => 6]) // => "patient-king-887265"
+Haikunator::haikunate(["tokenLength" => 6]) // => "patient-king-887265"
 
 // use hex instead of numbers
-haikunate(["tokenHex" => true]) // => "purple-breeze-98e1"
+Haikunator::haikunate(["tokenHex" => true]) // => "purple-breeze-98e1"
 
 // use custom chars instead of numbers/hex
-haikunate(["tokenChars" => "HAIKUNATE"]) // => "summer-atom-IHEA"
+Haikunator::haikunate(["tokenChars" => "HAIKUNATE"]) // => "summer-atom-IHEA"
 
 // don't include a token
-haikunate(["tokenLength" => 0]) // => "cold-wildflower"
+Haikunator::haikunate(["tokenLength" => 0]) // => "cold-wildflower"
 
 // use a different delimiter
-haikunate(["delimiter" => "."]) // => "restless.sea.7976"
+Haikunator::haikunate(["delimiter" => "."]) // => "restless.sea.7976"
 
 // no token, space delimiter
-haikunate(["tokenLength" => 0, "delimiter" => " "]) // => "delicate haze"
+Haikunator::haikunate(["tokenLength" => 0, "delimiter" => " "]) // => "delicate haze"
 
 // no token, empty delimiter
-haikunate(["tokenLength" => 0, "delimiter" => ""]) // => "billowingleaf"
+Haikunator::haikunate(["tokenLength" => 0, "delimiter" => ""]) // => "billowingleaf"
 ```
 
 ## Options
@@ -47,7 +48,7 @@ haikunate(["tokenLength" => 0, "delimiter" => ""]) // => "billowingleaf"
 The following options are available:
 
 ```javascript
-haikunate([
+Haikunator::haikunate([
   "delimiter" => "-",
   "tokenLength" => 4,
   "tokenHex" => false,
@@ -60,8 +61,8 @@ haikunate([
 
 Everyone is encouraged to help improve this project. Here are a few ways you can help:
 
-- [Report bugs](https://github.com/atroxdev/haikunatorphp/issues)
-- Fix bugs and [submit pull requests](https://github.com/atroxdev/haikunatorphp/pulls)
+- [Report bugs](https://github.com/atrox/haikunatorphp/issues)
+- Fix bugs and [submit pull requests](https://github.com/atrox/haikunatorphp/pulls)
 - Write, clarify, or fix documentation
 - Suggest or add new features
 
