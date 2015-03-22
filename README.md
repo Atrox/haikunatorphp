@@ -2,6 +2,7 @@
 
 [![Build Status](https://img.shields.io/travis/Atrox/haikunatorphp.svg?style=flat-square)](https://travis-ci.org/Atrox/haikunatorphp)
 [![Latest Version](https://img.shields.io/packagist/v/Atrox/haikunator.svg?style=flat-square)](https://packagist.org/packages/atrox/haikunator)
+[![Code Quality](https://img.shields.io/codacy/80c60008b52f4f99a28f9c40c85fd66d.svg?style=flat-square)](https://www.codacy.com/public/Atrox/haikunatorphp)
 
 Generate Heroku-like random names to use in your PHP applications.
 
@@ -47,7 +48,7 @@ Haikunator::haikunate(["tokenLength" => 0, "delimiter" => ""]) // => "billowingl
 
 The following options are available:
 
-```javascript
+```php
 Haikunator::haikunate([
   "delimiter" => "-",
   "tokenLength" => 4,
