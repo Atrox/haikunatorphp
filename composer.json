@@ -1,0 +1,21 @@
+{
+    "name": "atrox/haikunator",
+    "description": "Generate Heroku-like random names to use in your php applications.",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Atrox",
+            "email": "mail@atrox.me"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "require-dev": {
+      "phpunit/phpunit": "4.5.*"
+    },
+    "autoload": {
+      "psr-4": {
+        "Atrox\\Haikunator\\": "src"
+      }
+    }
+}
