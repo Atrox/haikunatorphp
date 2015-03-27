@@ -4,7 +4,7 @@ namespace Atrox\Haikunator;
 
 class Haikunator
 {
-    private static $ADJECTIVES = [
+    public static $ADJECTIVES = [
         "autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark",
         "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter",
         "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue",
@@ -19,7 +19,7 @@ class Haikunator
         "shrill", "rapid", "sweet", "curly", "calm", "jolly", "fancy", "plain", "shinny"
     ];
 
-    private static $NOUNS = [
+    public static $NOUNS = [
         "waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "morning",
         "snow", "lake", "sunset", "pine", "shadow", "leaf", "dawn", "glitter",
         "forest", "hill", "cloud", "meadow", "sun", "glade", "bird", "brook",

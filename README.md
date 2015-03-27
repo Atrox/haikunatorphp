@@ -42,6 +42,11 @@ Haikunator::haikunate(["tokenLength" => 0, "delimiter" => " "]) // => "delicate 
 
 // no token, empty delimiter
 Haikunator::haikunate(["tokenLength" => 0, "delimiter" => ""]) // => "billowingleaf"
+
+// custom nouns and/or adjectives
+Haikunator::$ADJECTIVES = ["red", "green", "blue"];
+Haikunator::$NOUNS = ["reindeer"];
+Haikunator::haikunate(); // => "blue-reindeer-4252"
 ```
 
 ## Options
@@ -55,6 +60,10 @@ Haikunator::haikunate([
   "tokenHex" => false,
   "tokenChars" => "0123456789"
 ]);
+
+// get/set nouns or adjectives
+Haikunator::$ADJECTIVES
+Haikunator::$NOUNS
 ```
 *If ```tokenHex``` is true, it overrides any tokens specified in ```tokenChars```*
 

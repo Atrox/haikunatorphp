@@ -65,4 +65,24 @@ class HaikunatorTest extends PHPUnit_Framework_TestCase {
         $this->assertRegExp("/((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(AAAA)$/i", $haikunate);
     }
 
+    public function testCustomNounsAndAdjectives()
+    {
+        Haikunator::$ADJECTIVES = ['FAIL'];
+        Haikunator::$NOUNS = ['WTF'];
+        $haikunate = Haikunator::haikunate();
+        $this->assertRegExp("/(FAIL)(-)(WTF)(-)(\\d{4})$/i", $haikunate);
+    }
+
+    public function testEverythingInOne()
+    {
+        Haikunator::$ADJECTIVES = ['ROFL'];
+        Haikunator::$NOUNS = ['COPTER'];
+        $haikunate = Haikunator::haikunate([
+            "delimiter" => ".",
+            "tokenLength" => 8,
+            "tokenChars" => "L"
+        ]);
+        $this->assertRegExp("/(ROFL)(\\.)(COPTER)(\\.)(LLLLLLLL)$/i", $haikunate);
+    }
+
 }
