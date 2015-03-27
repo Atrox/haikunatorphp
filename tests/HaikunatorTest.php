@@ -4,12 +4,6 @@ use Atrox\Haikunator\Haikunator;
 
 class HaikunatorTest extends PHPUnit_Framework_TestCase {
 
-    public function testHaikunator()
-    {
-        $haikunator = Haikunator::haikunate();
-        $this->assertRegExp("/((?:[a-z][a-z]+))(-)((?:[a-z][a-z]+))(-)(\\d{4})$/i", $haikunator);
-    }
-
     public function testDefaultUse()
     {
         $haikunate = Haikunator::haikunate();
