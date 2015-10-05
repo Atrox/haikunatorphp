@@ -2,7 +2,7 @@
 
 [![Build Status](https://img.shields.io/travis/Atrox/haikunatorphp.svg?style=flat-square)](https://travis-ci.org/Atrox/haikunatorphp)
 [![Latest Version](https://img.shields.io/packagist/v/Atrox/haikunator.svg?style=flat-square)](https://packagist.org/packages/atrox/haikunator)
-[![Code Quality](https://img.shields.io/codacy/80c60008b52f4f99a28f9c40c85fd66d.svg?style=flat-square)](https://www.codacy.com/public/Atrox/haikunatorphp)
+[![Coverage Status](https://img.shields.io/coveralls/Atrox/haikunatorphp.svg?style=flat-square)](https://coveralls.io/r/Atrox/haikunatorphp)
 
 Generate Heroku-like random names to use in your PHP applications.
 
@@ -17,7 +17,7 @@ composer require atrox/haikunator
 Haikunator is pretty simple.
 
 ```php
-use Atrox\Haikunator\Haikunator;
+use Atrox\Haikunator;
 
 // default usage
 Haikunator::haikunate() // => "wispy-dust-1337"
@@ -80,7 +80,10 @@ Everyone is encouraged to help improve this project. Here are a few ways you can
 
 Haikunator is also available in other languages. Check them out:
 
-- Python: https://github.com/Atrox/haikunatorpy
 - Node: https://github.com/Atrox/haikunatorjs
+- .NET: https://github.com/Atrox/haikunator.net
+- Python: https://github.com/Atrox/haikunatorpy
+- Java: https://github.com/Atrox/haikunatorjava
+- Dart: https://github.com/Atrox/haikunatordart
 - Ruby: https://github.com/usmanbashir/haikunator
 - Go: https://github.com/yelinaung/go-haikunator

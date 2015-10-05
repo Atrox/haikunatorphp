@@ -1,8 +1,9 @@
 <?php
 
-use Atrox\Haikunator\Haikunator;
+use Atrox\Haikunator;
 
-class HaikunatorTest extends PHPUnit_Framework_TestCase {
+class HaikunatorTest extends PHPUnit_Framework_TestCase
+{
 
     public function testDefaultUse()
     {
@@ -67,22 +68,22 @@ class HaikunatorTest extends PHPUnit_Framework_TestCase {
 
     public function testCustomNounsAndAdjectives()
     {
-        Haikunator::$ADJECTIVES = ['FAIL'];
-        Haikunator::$NOUNS = ['WTF'];
+        Haikunator::$ADJECTIVES = ['red'];
+        Haikunator::$NOUNS = ['reindeer'];
         $haikunate = Haikunator::haikunate();
-        $this->assertRegExp("/(FAIL)(-)(WTF)(-)(\\d{4})$/i", $haikunate);
+        $this->assertRegExp("/(red)(-)(reindeer)(-)(\\d{4})$/i", $haikunate);
     }
 
     public function testEverythingInOne()
     {
-        Haikunator::$ADJECTIVES = ['ROFL'];
-        Haikunator::$NOUNS = ['COPTER'];
+        Haikunator::$ADJECTIVES = ['green'];
+        Haikunator::$NOUNS = ['reindeer'];
         $haikunate = Haikunator::haikunate([
             "delimiter" => ".",
             "tokenLength" => 8,
-            "tokenChars" => "L"
+            "tokenChars" => "l",
         ]);
-        $this->assertRegExp("/(ROFL)(\\.)(COPTER)(\\.)(LLLLLLLL)$/i", $haikunate);
+        $this->assertRegExp("/(green)(\\.)(reindeer)(\\.)(llllllll)$/i", $haikunate);
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Atrox\Haikunator;
+namespace Atrox;
 
 class Haikunator
 {
@@ -16,7 +16,7 @@ class Haikunator
         "polished", "ancient", "purple", "lively", "nameless", "lucky", "odd", "tiny",
         "free", "dry", "yellow", "orange", "gentle", "tight", "super", "royal", "broad",
         "steep", "flat", "square", "round", "mute", "noisy", "hushy", "raspy", "soft",
-        "shrill", "rapid", "sweet", "curly", "calm", "jolly", "fancy", "plain", "shinny"
+        "shrill", "rapid", "sweet", "curly", "calm", "jolly", "fancy", "plain", "shinny",
     ];
 
     public static $NOUNS = [
@@ -32,7 +32,7 @@ class Haikunator
         "term", "credit", "art", "fashion", "truth", "disk", "math", "unit", "cell",
         "scene", "heart", "recipe", "union", "limit", "bread", "toast", "bonus",
         "lab", "mud", "mode", "poetry", "tooth", "hall", "king", "queen", "lion", "tiger",
-        "penguin", "kiwi", "cake", "mouse", "rice", "coke", "hola", "salad", "hat"
+        "penguin", "kiwi", "cake", "mouse", "rice", "coke", "hola", "salad", "hat",
     ];
 
     /**
@@ -51,15 +51,16 @@ class Haikunator
 
         $params = array_merge($defaults, $params);
 
-        if ($params["tokenHex"] == true) $params["tokenChars"] = "0123456789abcdef";
+        if ($params["tokenHex"] == true) {
+            $params["tokenChars"] = "0123456789abcdef";
+        }
 
         $adjective = self::$ADJECTIVES[mt_rand(0, count(self::$ADJECTIVES) - 1)];
         $noun = self::$NOUNS[mt_rand(0, count(self::$NOUNS) - 1)];
         $token = "";
 
-        for($i = 0; $i <= $params["tokenLength"] - 1; $i++)
-        {
-            $token .= $params["tokenChars"][mt_rand(0, strlen($params["tokenChars"])-1)];
+        for ($i = 0; $i <= $params["tokenLength"] - 1; $i++) {
+            $token .= $params["tokenChars"][mt_rand(0, strlen($params["tokenChars"]) - 1)];
         }
 
         $sections = [$adjective, $noun, $token];
