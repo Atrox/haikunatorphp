@@ -1,7 +1,7 @@
 {
     "name": "atrox/haikunator",
     "description": "Generate Heroku-like random names to use in your php applications.",
-    "license": "GPLv3",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Atrox",
