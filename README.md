@@ -73,7 +73,7 @@ A small CLI application is also delivered in `/bin/haikunator`.
 
 Use as follows:
 
-```shell
+```text
 $: ./bin/haikunator help generate
 Haikunator, version dev-master
 
