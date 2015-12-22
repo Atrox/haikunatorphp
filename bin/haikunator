@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-if (version_compare(PHP_VERSION, '5.4.0', '<')) {
-    fwrite(STDERR, "PHP minimum version required is 5.4.0, current is ".PHP_VERSION.PHP_EOL);
+if (version_compare(PHP_VERSION, '5.5.0', '<')) {
+    fwrite(STDERR, "PHP minimum version required is 5.5.0, current is ".PHP_VERSION.PHP_EOL);
     exit(1);
 }
 

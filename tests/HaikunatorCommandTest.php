@@ -36,9 +36,9 @@ class HaikunatorCommandTest extends TestCase
 
     protected function setUp()
     {
-        $this->haikunator = $this->getMock('Atrox\Haikunator');
-        $this->route      = $this->getMock('ZF\Console\Route', [], [], '', false);
-        $this->console    = $this->getMock('Zend\Console\Adapter\AdapterInterface');
+        $this->haikunator = $this->getMock(Haikunator::class);
+        $this->route      = $this->getMock(Route::class, [], [], '', false);
+        $this->console    = $this->getMock(AdapterInterface::class);
 
         $this->command = new HaikunatorCommand($this->haikunator);
     }
@@ -49,7 +49,7 @@ class HaikunatorCommandTest extends TestCase
 
         $propRefl = new \ReflectionProperty($command, 'haikunator');
         $propRefl->setAccessible(true);
-        $this->assertInstanceOf('Atrox\Haikunator', $propRefl->getValue($command));
+        $this->assertInstanceOf(Haikunator::class, $propRefl->getValue($command));
     }
 
     public function testFilterOutNullOptions()

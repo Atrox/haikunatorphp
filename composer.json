@@ -10,7 +10,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-      "php": ">=5.4",
+      "php": ">=5.5",
         "zfcampus/zf-console": "^1.2",
         "zendframework/zend-filter": "^2.5",
         "zendframework/zend-validator": "^2.5"
