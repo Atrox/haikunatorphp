@@ -33,7 +33,9 @@ $application = new Console\Application(
                 '--token-chars'  => 'The characters to use for the token; defaults to numbers',
                 '--token-hex|-x' => 'Same as --token-chars=0123456789abcdef',
                 '--delimiter'    => "The delimiter for all the part of the result; defaults to '-'",
-                '--nouns|--adjectives' => 'A list of words separated by commas, or a text filename containing words separated by commas, spaces or new lines',
+                '--nouns|--adjectives' =>
+                    "A list of words separated by commas, or a text filename
+                       containing words separated by commas, spaces or new lines",
             ],
             'filters' => [
                 'token-hex'    => new Filter\Boolean(),
