@@ -1,0 +1,56 @@
+#!/usr/bin/env php
+<?php
+
+if (version_compare(PHP_VERSION, '5.5.0', '<')) {
+    fwrite(STDERR, "PHP minimum version required is 5.5.0, current is ".PHP_VERSION.PHP_EOL);
+    exit(1);
+}
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Zend\Filter;
+use Zend\Validator;
+use ZF\Console;
+
+$version = '@package_version@';
+
+// Reset version if not rewritten (which happens when using a phar)
+$version = ($version === '@' . 'package_version' . '@')
+    ? 'dev-master'
+    : $version;
+
+$application = new Console\Application(
+    'Haikunator',
+    $version,
+    [
+        [
+            'name'              => 'generate',
+            'route'             => '[--token-length=] [--token-chars=] [--token-hex|-x] [--delimiter=] [--nouns=] [--adjectives=]',
+            'description'       => 'Generate Heroku-like random names',
+            'short_description' => 'Generate Heroku-like random names',
+            'options_descriptions' => [
+                '--token-length' => 'An integer representing the length of the token; defaults to 4',
+                '--token-chars'  => 'The characters to use for the token; defaults to numbers',
+                '--token-hex|-x' => 'Same as --token-chars=0123456789abcdef',
+                '--delimiter'    => "The delimiter for all the part of the result; defaults to '-'",
+                '--nouns|--adjectives' =>
+                    "A list of words separated by commas, or a text filename
+                       containing words separated by commas, spaces or new lines",
+            ],
+            'filters' => [
+                'token-hex'    => new Filter\Boolean(),
+                'x'            => new Filter\Boolean(),
+                'token-chars'  => new Filter\StringTrim(),
+                'nouns'        => new Console\Filter\Explode(),
+                'adjectives'   => new Console\Filter\Explode(),
+            ],
+            'validators' => [
+                'token-length' => new Validator\Regex('/\d+/'),
+            ],
+            'handler' => new Atrox\HaikunatorCommand(),
+        ]
+    ]
+);
+
+$exit = $application->run();
+exit($exit);

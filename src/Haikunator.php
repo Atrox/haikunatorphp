@@ -66,4 +66,14 @@ class Haikunator
         $sections = [$adjective, $noun, $token];
         return implode($params["delimiter"], array_filter($sections));
     }
+
+    /**
+     * @param array $params
+     *
+     * @return string
+     */
+    public function __invoke(array $params = [])
+    {
+        return static::haikunate($params);
+    }
 }

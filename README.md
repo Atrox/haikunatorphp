@@ -67,6 +67,34 @@ Haikunator::$NOUNS
 ```
 *If ```tokenHex``` is true, it overrides any tokens specified in ```tokenChars```*
 
+## Command Line Interface
+
+A small CLI application is also delivered in `/bin/haikunator`.
+
+Use as follows:
+
+```text
+$: ./bin/haikunator help generate
+Haikunator, version dev-master
+
+Usage:
+ generate [--token-length=] [--token-chars=] [--token-hex|-x] [--delimiter=] [--nouns=] [--adjectives=]
+
+Arguments:
+ --token-length        An integer representing the length of the token; defaults to 4
+ --token-chars         The characters to use for the token; defaults to numbers
+ --token-hex|-x        Same as --token-chars=0123456789abcdef
+ --delimiter           The delimiter for all the part of the result; defaults to '-'
+ --nouns|--adjectives  A list of words separated by commas, or a text filename
+                       containing words separated by commas, spaces or new lines
+
+Help:
+
+Generate Heroku-like random names
+```
+
+To execute it simply via the `haikunator` command in you system, you can install it globally via Composer with `composer global require atrox/haikunator` and then ensure your `~/.composer/vendor/bin` is present in your env's `$PATH`. 
+
 ## Contributing
 
 Everyone is encouraged to help improve this project. Here are a few ways you can help:
