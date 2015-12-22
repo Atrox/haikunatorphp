@@ -1,8 +1,11 @@
 <?php
 
-use Atrox\Haikunator;
+namespace Atrox\Test;
 
-class HaikunatorTest extends PHPUnit_Framework_TestCase
+use Atrox\Haikunator;
+use PHPUnit_Framework_TestCase as TestCase;
+
+class HaikunatorTest extends TestCase
 {
 
     public function testDefaultUse()
@@ -86,4 +89,13 @@ class HaikunatorTest extends PHPUnit_Framework_TestCase
         $this->assertRegExp("/(green)(\\.)(reindeer)(\\.)(llllllll)$/i", $haikunate);
     }
 
+    public function testCanBeUsedAsCallable()
+    {
+        Haikunator::$ADJECTIVES = ['green'];
+        Haikunator::$NOUNS = ['reindeer'];
+        $haikunator = new Haikunator();
+        $this->assertTrue(is_callable($haikunator));
+        $params = [ 'tokenLength' => 0 ];
+        $this->assertSame($haikunator($params), Haikunator::haikunate($params));
+    }
 }
