@@ -59,7 +59,7 @@ class Haikunator
         $noun = self::$NOUNS[mt_rand(0, count(self::$NOUNS) - 1)];
         $token = "";
 
-        for ($i = 0; $i <= $params["tokenLength"] - 1; $i++) {
+        for ($i = 0; $i < $params["tokenLength"]; $i++) {
             $token .= $params["tokenChars"][mt_rand(0, strlen($params["tokenChars"]) - 1)];
         }
 

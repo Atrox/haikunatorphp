@@ -112,6 +112,6 @@ Haikunator is also available in other languages. Check them out:
 - .NET: https://github.com/Atrox/haikunator.net
 - Python: https://github.com/Atrox/haikunatorpy
 - Java: https://github.com/Atrox/haikunatorjava
+- Go: https://github.com/Atrox/haikunatorgo
 - Dart: https://github.com/Atrox/haikunatordart
 - Ruby: https://github.com/usmanbashir/haikunator
-- Go: https://github.com/yelinaung/go-haikunator
