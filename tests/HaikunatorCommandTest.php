@@ -1,7 +1,4 @@
 <?php
-/**
- * @license See the file LICENSE for copying permission
- */
 
 namespace Atrox\Test;
 
@@ -12,6 +9,11 @@ use PHPUnit_Framework_TestCase as TestCase;
 use Zend\Console\Adapter\AdapterInterface;
 use ZF\Console\Route;
 
+/**
+ * Class HaikunatorCommandTest
+ *
+ * @package Atrox\Test
+ */
 class HaikunatorCommandTest extends TestCase
 {
     /**
@@ -33,15 +35,6 @@ class HaikunatorCommandTest extends TestCase
      * @var AdapterInterface|MockObject
      */
     private $console;
-
-    protected function setUp()
-    {
-        $this->haikunator = $this->getMock(Haikunator::class);
-        $this->route      = $this->getMock(Route::class, [], [], '', false);
-        $this->console    = $this->getMock(AdapterInterface::class);
-
-        $this->command = new HaikunatorCommand($this->haikunator);
-    }
 
     public function testConstructorLazilyCreatesHaikunator()
     {
@@ -71,7 +64,7 @@ class HaikunatorCommandTest extends TestCase
     {
         $map = [];
         foreach ($params as $name => $value) {
-            $map[] = [ $name, null, $value ];
+            $map[] = [$name, null, $value];
         }
         $this->route->expects($this->any())->method('getMatchedParam')->willReturnMap($map);
 
@@ -80,24 +73,30 @@ class HaikunatorCommandTest extends TestCase
         $this->command->__invoke($this->route, $this->console);
     }
 
+    /**
+     * @return array
+     */
     public function paramsDataProvider()
     {
         return [
-            [ [ 'token-length' => 10 ], [ 'tokenLength' => 10 ] ],
-            [ [ 'token-hex' => true, 'x' => false ], [ 'tokenHex' => true ]],
-            [ [ 'token-hex' => false, 'x' => true ], [ 'tokenHex' => true ]],
-            [ [ 'token-hex' => false, 'x' => false ], [ ] ],
-            [ [ 'token-chars' => 'foobar' ], [ 'tokenChars' => 'foobar' ] ],
-            [ [ 'delimiter' => '.' ], [ 'delimiter' => '.' ] ],
+            [['token-length' => 10], ['tokenLength' => 10]],
+            [['token-hex' => true, 'x' => false], ['tokenHex' => true]],
+            [['token-hex' => false, 'x' => true], ['tokenHex' => true]],
+            [['token-hex' => false, 'x' => false], []],
+            [['token-chars' => 'foobar'], ['tokenChars' => 'foobar']],
+            [['delimiter' => '.'], ['delimiter' => '.']],
         ];
     }
 
     /**
+     * @param       $name
+     * @param array $value
+     *
      * @dataProvider staticParamDataProvider
      */
     public function testStaticParams($name, array $value)
     {
-        $map = [ [ $name, null, $value ] ];
+        $map = [[$name, null, $value]];
         $this->route->expects($this->any())->method('getMatchedParam')->willReturnMap($map);
 
         $this->command->__invoke($this->route, $this->console);
@@ -105,11 +104,23 @@ class HaikunatorCommandTest extends TestCase
         $this->assertEquals($value, Haikunator::${strtoupper($name)});
     }
 
+    /**
+     * @return array
+     */
     public function staticParamDataProvider()
     {
         return [
-            [ 'nouns',  ['foo', 'bar', 'baz'] ],
-            [ 'adjectives',  ['foo', 'bar', 'baz'] ],
+            ['nouns', ['foo', 'bar', 'baz']],
+            ['adjectives', ['foo', 'bar', 'baz']],
         ];
+    }
+
+    protected function setUp()
+    {
+        $this->haikunator = $this->getMock(Haikunator::class);
+        $this->route = $this->getMock(Route::class, [], [], '', false);
+        $this->console = $this->getMock(AdapterInterface::class);
+
+        $this->command = new HaikunatorCommand($this->haikunator);
     }
 }

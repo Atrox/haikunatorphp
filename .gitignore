@@ -1,5 +1,6 @@
-/vendor
-composer.lock
-.idea/
-coverage/
-build/
+### General ###
+/build/
+
+### Composer ###
+composer.phar
+/vendor/

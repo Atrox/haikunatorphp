@@ -1,13 +1,15 @@
 <?php
-/**
- * @license See the file LICENSE for copying permission
- */
 
 namespace Atrox;
 
 use Zend\Console\Adapter\AdapterInterface as ConsoleAdapter;
 use ZF\Console\Route;
 
+/**
+ * Class HaikunatorCommand
+ *
+ * @package Atrox
+ */
 class HaikunatorCommand
 {
     /**
@@ -15,6 +17,11 @@ class HaikunatorCommand
      */
     protected $haikunator;
 
+    /**
+     * HaikunatorCommand constructor.
+     *
+     * @param \Atrox\Haikunator|null $haikunator
+     */
     public function __construct(Haikunator $haikunator = null)
     {
         if (! $haikunator) {
@@ -25,6 +32,10 @@ class HaikunatorCommand
     }
 
 
+    /**
+     * @param \ZF\Console\Route                      $route
+     * @param \Zend\Console\Adapter\AdapterInterface $console
+     */
     public function __invoke(Route $route, ConsoleAdapter $console)
     {
         $params = $this->getParamsFromRoute($route);
@@ -70,7 +81,7 @@ class HaikunatorCommand
      */
     protected function setNounsFromRoute(Route $route)
     {
-        $nouns      = $route->getMatchedParam('nouns');
+        $nouns = $route->getMatchedParam('nouns');
         if (! empty($nouns)) {
             Haikunator::$NOUNS = $this->getValuesFromFileIfExists($nouns);
         }
@@ -88,6 +99,7 @@ class HaikunatorCommand
     }
 
     /**
+     * @param array $values
      * @return array
      */
     protected function getValuesFromFileIfExists(array $values)

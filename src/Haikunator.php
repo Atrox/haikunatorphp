@@ -2,51 +2,73 @@
 
 namespace Atrox;
 
+/**
+ * Class Haikunator
+ *
+ * @package Atrox
+ */
 class Haikunator
 {
+    /**
+     * @var array Adjectives used by Haikunator
+     */
     public static $ADJECTIVES = [
-        "autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark",
-        "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter",
-        "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue",
-        "billowing", "broken", "cold", "damp", "falling", "frosty", "green",
-        "long", "late", "lingering", "bold", "little", "morning", "muddy", "old",
-        "red", "rough", "still", "small", "sparkling", "throbbing", "shy",
-        "wandering", "withered", "wild", "black", "young", "holy", "solitary",
-        "fragrant", "aged", "snowy", "proud", "floral", "restless", "divine",
-        "polished", "ancient", "purple", "lively", "nameless", "lucky", "odd", "tiny",
-        "free", "dry", "yellow", "orange", "gentle", "tight", "super", "royal", "broad",
-        "steep", "flat", "square", "round", "mute", "noisy", "hushy", "raspy", "soft",
-        "shrill", "rapid", "sweet", "curly", "calm", "jolly", "fancy", "plain", "shinny",
-    ];
-
-    public static $NOUNS = [
-        "waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "morning",
-        "snow", "lake", "sunset", "pine", "shadow", "leaf", "dawn", "glitter",
-        "forest", "hill", "cloud", "meadow", "sun", "glade", "bird", "brook",
-        "butterfly", "bush", "dew", "dust", "field", "fire", "flower", "firefly",
-        "feather", "grass", "haze", "mountain", "night", "pond", "darkness",
-        "snowflake", "silence", "sound", "sky", "shape", "surf", "thunder",
-        "violet", "water", "wildflower", "wave", "water", "resonance", "sun",
-        "wood", "dream", "cherry", "tree", "fog", "frost", "voice", "paper",
-        "frog", "smoke", "star", "atom", "band", "bar", "base", "block", "boat",
-        "term", "credit", "art", "fashion", "truth", "disk", "math", "unit", "cell",
-        "scene", "heart", "recipe", "union", "limit", "bread", "toast", "bonus",
-        "lab", "mud", "mode", "poetry", "tooth", "hall", "king", "queen", "lion", "tiger",
-        "penguin", "kiwi", "cake", "mouse", "rice", "coke", "hola", "salad", "hat",
+        "aged", "ancient", "autumn", "billowing", "bitter", "black", "blue", "bold",
+        "broad", "broken", "calm", "cold", "cool", "crimson", "curly", "damp",
+        "dark", "dawn", "delicate", "divine", "dry", "empty", "falling", "fancy",
+        "flat", "floral", "fragrant", "frosty", "gentle", "green", "hidden", "holy",
+        "icy", "jolly", "late", "lingering", "little", "lively", "long", "lucky",
+        "misty", "morning", "muddy", "mute", "nameless", "noisy", "odd", "old",
+        "orange", "patient", "plain", "polished", "proud", "purple", "quiet", "rapid",
+        "raspy", "red", "restless", "rough", "round", "royal", "shiny", "shrill",
+        "shy", "silent", "small", "snowy", "soft", "solitary", "sparkling", "spring",
+        "square", "steep", "still", "summer", "super", "sweet", "throbbing", "tight",
+        "tiny", "twilight", "wandering", "weathered", "white", "wild", "winter", "wispy",
+        "withered", "yellow", "young",
     ];
 
     /**
-     * Generate Heroku-like random names to use in your applications.
+     * @var array Nouns used by Haikunator
+     */
+    public static $NOUNS = [
+        "art", "band", "bar", "base", "bird", "block", "boat", "bonus",
+        "bread", "breeze", "brook", "bush", "butterfly", "cake", "cell", "cherry",
+        "cloud", "credit", "darkness", "dawn", "dew", "disk", "dream", "dust",
+        "feather", "field", "fire", "firefly", "flower", "fog", "forest", "frog",
+        "frost", "glade", "glitter", "grass", "hall", "hat", "haze", "heart",
+        "hill", "king", "lab", "lake", "leaf", "limit", "math", "meadow",
+        "mode", "moon", "morning", "mountain", "mouse", "mud", "night", "paper",
+        "pine", "poetry", "pond", "queen", "rain", "recipe", "resonance", "rice",
+        "river", "salad", "scene", "sea", "shadow", "shape", "silence", "sky",
+        "smoke", "snow", "snowflake", "sound", "star", "sun", "sun", "sunset",
+        "surf", "term", "thunder", "tooth", "tree", "truth", "union", "unit",
+        "violet", "voice", "water", "water", "waterfall", "wave", "wildflower", "wind",
+        "wood",
+    ];
+
+    /**
      * @param array $params
+     *
      * @return string
      */
-    public static function haikunate(array $params = array())
+    public function __invoke(array $params = [])
+    {
+        return static::haikunate($params);
+    }
+
+    /**
+     * Generate Heroku-like random names to use in your applications.
+     *
+     * @param array $params Array containing the optinal parameters.
+     * @return string
+     */
+    public static function haikunate(array $params = [])
     {
         $defaults = [
-            "delimiter" => "-",
+            "delimiter"   => "-",
             "tokenLength" => 4,
-            "tokenHex" => false,
-            "tokenChars" => "0123456789",
+            "tokenHex"    => false,
+            "tokenChars"  => "0123456789",
         ];
 
         $params = array_merge($defaults, $params);
@@ -65,15 +87,5 @@ class Haikunator
 
         $sections = [$adjective, $noun, $token];
         return implode($params["delimiter"], array_filter($sections));
-    }
-
-    /**
-     * @param array $params
-     *
-     * @return string
-     */
-    public function __invoke(array $params = [])
-    {
-        return static::haikunate($params);
     }
 }
