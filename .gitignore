@@ -1,6 +1,8 @@
 ### General ###
 /build/
+.idea
 
 ### Composer ###
 composer.phar
-/vendor/
+/vendor/.idea
+vendor
