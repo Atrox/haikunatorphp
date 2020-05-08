@@ -1,9 +1,7 @@
 ### General ###
 /build/
-.idea
 
 ### Composer ###
 composer.phar
-/vendor/.idea
 vendor
 composer.lock

@@ -1,8 +1,8 @@
 # HaikunatorPHP
 
-[![Build Status](https://img.shields.io/travis/Atrox/haikunatorphp.svg?style=flat-square)](https://travis-ci.org/Atrox/haikunatorphp)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fatrox%2Fhaikunatorphp%2Fbadge&style=flat-square)](https://actions-badge.atrox.dev/atrox/haikunatorphp/goto)
 [![Latest Version](https://img.shields.io/packagist/v/Atrox/haikunator.svg?style=flat-square)](https://packagist.org/packages/atrox/haikunator)
-[![Coverage Status](https://img.shields.io/coveralls/Atrox/haikunatorphp.svg?style=flat-square)](https://coveralls.io/r/Atrox/haikunatorphp)
+[![Coverage Status](https://img.shields.io/codecov/c/github/atrox/haikunatorphp.svg?style=flat-square)](https://codecov.io/gh/atrox/haikunatorphp)
 
 Generate Heroku-like random names to use in your PHP applications.
 
@@ -85,6 +85,7 @@ Haikunator is also available in other languages. Check them out:
 - Python: https://github.com/Atrox/haikunatorpy
 - Java: https://github.com/Atrox/haikunatorjava
 - Go: https://github.com/Atrox/haikunatorgo
+- Clojure: https://github.com/Atrox/haikunatorclj
 - Dart: https://github.com/Atrox/haikunatordart
 - Ruby: https://github.com/usmanbashir/haikunator
 - Rust: https://github.com/nishanths/rust-haikunator
