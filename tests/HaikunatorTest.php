@@ -3,7 +3,7 @@
 namespace Atrox\Test;
 
 use Atrox\Haikunator;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class HaikunatorTest
@@ -21,7 +21,7 @@ class HaikunatorTest extends TestCase
     public function testHaikunate(array $params, $regex)
     {
         $haikunate = Haikunator::haikunate($params);
-        $this->assertRegExp($regex, $haikunate);
+        $this->assertMatchesRegularExpression($regex, $haikunate);
     }
 
     /**
@@ -48,7 +48,7 @@ class HaikunatorTest extends TestCase
         Haikunator::$NOUNS = ['reindeer'];
         $haikunate = Haikunator::haikunate();
 
-        $this->assertRegExp("/(red)(-)(reindeer)(-)(\\d{4})$/i", $haikunate);
+        $this->assertMatchesRegularExpression("/(red)(-)(reindeer)(-)(\\d{4})$/i", $haikunate);
     }
 
     public function testEverythingInOne()
@@ -61,7 +61,7 @@ class HaikunatorTest extends TestCase
             "tokenChars"  => "l",
         ]);
 
-        $this->assertRegExp("/(green)(\\.)(reindeer)(\\.)(llllllll)$/i", $haikunate);
+        $this->assertMatchesRegularExpression("/(green)(\\.)(reindeer)(\\.)(llllllll)$/i", $haikunate);
     }
 
     public function testWontReturnSameForSubsequentCalls()
