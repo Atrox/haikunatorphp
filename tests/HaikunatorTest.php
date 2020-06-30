@@ -12,6 +12,26 @@ use PHPUnit\Framework\TestCase;
  */
 class HaikunatorTest extends TestCase
 {
+    private $nouns = [];
+
+    private $adjectives = [];
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->nouns = Haikunator::$NOUNS;
+        $this->adjectives = Haikunator::$ADJECTIVES;
+    }
+
+    protected function tearDown(): void
+    {
+        Haikunator::$NOUNS = $this->nouns;
+        Haikunator::$ADJECTIVES = $this->adjectives;
+
+        parent::tearDown();
+    }
+
     /**
      * @param array $params
      * @param       $regex
