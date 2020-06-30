@@ -71,6 +71,18 @@ class HaikunatorTest extends TestCase
         $this->assertMatchesRegularExpression("/(red)(-)(reindeer)(-)(\\d{4})$/i", $haikunate);
     }
 
+    public function testNounsMustNotContainDuplicates()
+    {
+        $nouns = Haikunator::$NOUNS;
+        $this->assertEquals(count($nouns), count(array_flip($nouns)));
+    }
+
+    public function testAdjectivesMustNotContainDuplicates()
+    {
+        $adjectives = Haikunator::$ADJECTIVES;
+        $this->assertEquals(count($adjectives), count(array_flip($adjectives)));
+    }
+
     public function testEverythingInOne()
     {
         Haikunator::$ADJECTIVES = ['green'];
