@@ -40,9 +40,9 @@ class Haikunator
         "mode", "moon", "morning", "mountain", "mouse", "mud", "night", "paper",
         "pine", "poetry", "pond", "queen", "rain", "recipe", "resonance", "rice",
         "river", "salad", "scene", "sea", "shadow", "shape", "silence", "sky",
-        "smoke", "snow", "snowflake", "sound", "star", "sun", "sun", "sunset",
+        "smoke", "snow", "snowflake", "sound", "star", "sun", "sunset",
         "surf", "term", "thunder", "tooth", "tree", "truth", "union", "unit",
-        "violet", "voice", "water", "water", "waterfall", "wave", "wildflower", "wind",
+        "violet", "voice", "water", "waterfall", "wave", "wildflower", "wind",
         "wood",
     ];
 
