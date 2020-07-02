@@ -13,7 +13,6 @@ use PHPUnit\Framework\TestCase;
 class HaikunatorTest extends TestCase
 {
     private $nouns = [];
-
     private $adjectives = [];
 
     protected function setUp(): void
