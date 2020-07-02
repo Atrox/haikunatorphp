@@ -12,6 +12,25 @@ use PHPUnit\Framework\TestCase;
  */
 class HaikunatorTest extends TestCase
 {
+    private $nouns = [];
+    private $adjectives = [];
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->nouns = Haikunator::$NOUNS;
+        $this->adjectives = Haikunator::$ADJECTIVES;
+    }
+
+    protected function tearDown(): void
+    {
+        Haikunator::$NOUNS = $this->nouns;
+        Haikunator::$ADJECTIVES = $this->adjectives;
+
+        parent::tearDown();
+    }
+
     /**
      * @param array $params
      * @param       $regex
@@ -49,6 +68,18 @@ class HaikunatorTest extends TestCase
         $haikunate = Haikunator::haikunate();
 
         $this->assertMatchesRegularExpression("/(red)(-)(reindeer)(-)(\\d{4})$/i", $haikunate);
+    }
+
+    public function testNounsMustNotContainDuplicates()
+    {
+        $nouns = Haikunator::$NOUNS;
+        $this->assertEquals(count($nouns), count(array_flip($nouns)));
+    }
+
+    public function testAdjectivesMustNotContainDuplicates()
+    {
+        $adjectives = Haikunator::$ADJECTIVES;
+        $this->assertEquals(count($adjectives), count(array_flip($adjectives)));
     }
 
     public function testEverythingInOne()
